@@ -7,9 +7,9 @@
 ---
 
 ## 1. Team Information
-- **Team Name**: 
+- **Team Name**: Delta
 - **Members**: 1. ______________________  2. ______________________  3. ______________________
-- **Working Branch**: `team-solution`
+- **Working Branch**: `Delta`
 
 ---
 
@@ -17,29 +17,29 @@
 *Show how you guided the AI through iterative reasoning rather than asking it to auto-solve blindly:*
 
 ### Prompt 1
-- **Defect / Area Investigated**: 
+- **Defect / Area Investigated**: Baseline failures and lifecycle root cause
 - **Exact Prompt Sent to AI**:
-  > 
+  > Clone the repository into a new workspace folder. Run the baseline tests, identify the failing behaviors, and explain each root cause before changing code.
 
 ---
 
 ### Prompt 2
-- **Defect / Area Investigated**: 
+- **Defect / Area Investigated**: Archive, restore, pagination, and stats service logic
 - **Exact Prompt Sent to AI**:
-  > 
+  > Use the failing Django tests to trace the archive/restore flags, active-versus-archived queries, pagination totals, and aggregate statistics. Make the smallest service-layer changes that correct their state transitions and counters.
 
 ---
 
 ### Prompt 3
-- **Defect / Area Investigated**: 
+- **Defect / Area Investigated**: URL protocol and QR-code implementation
 - **Exact Prompt Sent to AI**:
-  > 
+  > Add strict service-level validation for HTTP and HTTPS target URLs, implement both backend and frontend QR URL generation, add a protocol regression test, then rerun the complete Django suite.
 
 ---
 
 ## 3. Final Submission Checklist Before Calling Judge
 - [ ] All test suites pass 100% (`make test`)
 - [ ] Web application manually verified in browser (`make run`)
-- [ ] Code committed to a dedicated branch (`team-solution`, not `main`)
+- [x] Code committed to a dedicated branch (`Delta`, not `main`)
 - [ ] Pull Request opened with clean description
 - [ ] 3 prompt sequences documented above in Section 2

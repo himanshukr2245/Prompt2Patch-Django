@@ -27,6 +27,17 @@ class LinkSnipStandardAPITests(TestCase):
         with self.assertRaises(ValueError, msg="Expected ValueError when reusing an active custom slug"):
             services.create_link('https://example.com/second', custom_slug=slug)
 
+    def test_rejects_non_http_target_urls(self):
+        for invalid_url in (
+            'javascript:alert(1)',
+            'file:///tmp/example',
+            'ftp://example.com/file',
+            'not-a-url',
+        ):
+            with self.subTest(invalid_url=invalid_url):
+                with self.assertRaises(ValueError):
+                    services.create_link(invalid_url)
+
     def test_records_clicks_and_updates_click_count(self):
         link = services.create_link('https://example.com/click-test')
         services.record_click(link.id, 'https://twitter.com', '127.0.0.1')
